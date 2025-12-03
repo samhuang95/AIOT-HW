@@ -64,7 +64,7 @@ streamlit run app.py
 
 ## 線上展示 (Demo)
 
-🔗 **Streamlit App**: [請在此貼上您的 Streamlit 連結]
+🔗 **Streamlit App**: https://aiot-hw-hkxfxavomxk3asw4xdcyyd.streamlit.app/
 
 ## 專案結構
 
