@@ -1,23 +1,19 @@
 import requests
 import json
 import os
+from dotenv import load_dotenv
 from data_processor import process_weather_data
 
 def get_weather_data():
-    # 預設 Token，來自您的請求
-    api_token = "CWA-1FFDDAEC-161F-46A3-BE71-93C32C52829F"
+    # 載入 .env 檔案中的環境變數
+    load_dotenv()
 
-    # 嘗試從 .env 讀取 Token 以保持安全性
-    env_path = os.path.join(os.path.dirname(__file__), '.env')
-    if os.path.exists(env_path):
-        try:
-            with open(env_path, 'r', encoding='utf-8') as f:
-                for line in f:
-                    if line.strip().startswith('API_TOKEN='):
-                        api_token = line.strip().split('=', 1)[1]
-                        break
-        except Exception as e:
-            print(f"讀取 .env 失敗，將使用預設 Token。錯誤: {e}")
+    # 從環境變數中讀取 API_TOKEN
+    api_token = os.getenv("API_TOKEN")
+
+    if not api_token:
+        print("錯誤: 未在 .env 檔案或環境變數中找到 API_TOKEN。")
+        return
 
     # 建構 URL
     url = f"https://opendata.cwa.gov.tw/fileapi/v1/opendataapi/F-A0010-001?Authorization={api_token}&downloadType=WEB&format=JSON"

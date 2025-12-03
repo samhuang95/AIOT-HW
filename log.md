@@ -109,6 +109,20 @@ https://opendata.cwa.gov.tw/fileapi/v1/opendataapi/F-A0010-001?Authorization=CWA
     - 編輯器設定 (`.vscode/`)
     - 程式產生的資料檔 (`weather_data.json`, `weather_report.xlsx`, `weather_data.db`)
 
+## 紀錄 10
+
+**時間**: 2025/12/03 18:45:00 (預估)
+**題文內容**:
+我希望 API_TOKEN 可以使用 env 內的
+
+**程式碼與任務簡述**:
+
+- 安裝 `python-dotenv` 套件。
+- 修改 `weather_crawler.py`：
+  - 移除程式碼中寫死的 API Token。
+  - 改用 `load_dotenv()` 與 `os.getenv("API_TOKEN")` 從 `.env` 檔案讀取 Token，提升安全性。
+- 更新 `requirements.txt`。
+
 ## 紀錄 9
 
 **時間**: 2025/12/03 18:40:00 (預估)
